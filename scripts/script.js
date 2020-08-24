@@ -94,7 +94,7 @@ const formCardValidator = new FormValidator(chooseContent);
 const pictureClass = new PopupImage(choosePicture,chooseImage);
 
 const api = new Api({
-  baseUrl: 'https://praktikum.tk/cohort12',
+  baseUrl: 'https://nomoreparties.co/cohort12',
   headers: {
     'authorization': 'fd6a5b73-7bb7-4dfa-8ed7-e499c84151ec',
     'Content-type': 'application/json'
