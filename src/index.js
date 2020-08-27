@@ -102,8 +102,10 @@ const formEditValidator = new FormValidator(editPopup);
 const formCardValidator = new FormValidator(chooseContent);
 const pictureClass = new PopupImage(choosePicture,chooseImage);
 
+const API_URL = NODE_ENV === 'production' ? 'https://nomoreparties.co' : 'http://nomoreparties.co';
+
 const api = new Api({
-  baseUrl: 'https://nomoreparties.co/cohort12',
+  baseUrl: `${API_URL}/cohort12`,
   headers: {
     'authorization': 'fd6a5b73-7bb7-4dfa-8ed7-e499c84151ec',
     'Content-type': 'application/json'
