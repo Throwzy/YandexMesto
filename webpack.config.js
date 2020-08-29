@@ -14,7 +14,7 @@ module.exports = {
     context: path.resolve(__dirname, "src"),
     mode: 'development',
     entry: {
-        main: './index.js',
+        main: ['@babel/polyfill', './index.js'],
     },
     output: {
         filename: "bundle.[hash].js",
@@ -48,19 +48,33 @@ module.exports = {
                 'css-loader',
             ]
         },
-            { test: /\.(eot|ttf|woff|woff2)$/,
+            {
+                test: /\.(eot|ttf|woff|woff2)$/,
                 loader: 'file-loader?name=./vendor/[name].[ext]'
             },
             {
                 test: /\.(png|jpg|gif|ico|svg)$/,
                 use: [
-                    'file-loader?name=../images/[name].[ext]', // указали папку, куда складывать изображения
+                    'file-loader?name=./images/[name].[ext]', // указали папку, куда складывать изображения
                     {
                         loader: 'image-webpack-loader',
                         options: {}
+                    }]},
+                    {
+                        test: /\.js$/,
+                        exclude: /node_modules/,
+                        loader: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: [
+                                    '@babel/preset-env'
+                                ],
+                                plugins: [
+                                    '@babel/plugin-proposal-class-properties'
+                                ]
+                            }
+                        }
                     },
                 ]
             }
-        ]
-    }
 }
