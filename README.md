@@ -7,3 +7,7 @@
 ### Версия:
 * 1.0.0 (stable)
 [Ссылка на готовый проект](https://throwzy.github.io/YandexMesto/)
+### Инструкция к запуску:
+* Клонировать репозиторий
+* Запустить npm run build
+* открыть index.html
